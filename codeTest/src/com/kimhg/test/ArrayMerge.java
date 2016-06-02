@@ -65,6 +65,19 @@ public class ArrayMerge {
 		}
 		System.out.println("Array sorting(arr3 reverse) : "+Arrays.toString(arr3));
 		
+		// String array sorting(asc)
+		String[] str1 = {"bc", "cx", "Aa", "aa", "ca", "2", "AA", "한국", "xa"}; 
+		for(int i = str1.length-1; i>=0; i--){
+			for(int j = 0; j<i; j++){
+				if(str1[j].compareTo(str1[j+1])>0){
+					String tmpVal = str1[j];
+					str1[j] = str1[j+1];
+					str1[j+1] = tmpVal;
+				}
+			}
+		}
+		System.out.println("String array sorting(asc) : "+Arrays.toString(str1));
+
 	}
 	
 	public int[] mergeArrays(int[] arrA, int[] arrB) {
