@@ -54,6 +54,7 @@ public class ArrayMerge {
 			}
 		}
 		System.out.println("Array sorting(desc) : "+Arrays.toString(arrSum));
+
 		
 		// array reverse
 		int[] arr3 = {10, 11, 12, 13, 14, 15, 16};
@@ -78,6 +79,7 @@ public class ArrayMerge {
 		}
 		//
 		System.out.println("String array sorting(asc) : "+Arrays.toString(str1));
+
 
 	}
 	
