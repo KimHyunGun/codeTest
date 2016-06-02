@@ -1,6 +1,9 @@
 package com.kimhg.test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 /**
  * 
@@ -60,7 +63,7 @@ public class ArrayRotate {
 			}
 			//System.out.println(i+" >> "+A[i]);
 		}
-		
+
 		for(int g = 0; g<A.length; g++){
 			if(A[g]>0) return A[g];
 		}
