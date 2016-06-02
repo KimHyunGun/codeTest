@@ -55,7 +55,7 @@ public class ArrayMerge {
 		}
 		System.out.println("Array sorting(desc) : "+Arrays.toString(arrSum));
 
-		// 
+		// 1
 		// array reverse
 		int[] arr3 = {10, 11, 12, 13, 14, 15, 16};
 		System.out.println("Array sorting(arr3) : "+Arrays.toString(arr3));
