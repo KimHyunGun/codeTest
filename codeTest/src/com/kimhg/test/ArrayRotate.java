@@ -52,6 +52,7 @@ public class ArrayRotate {
 
 	public int solution2(int[] A){
 		int ret = 0;
+		/*
 		for(int i = 0; i<A.length; i++){
 			for(int j = i+1; j<A.length; j++){
 				if(A[i] > 0 && A[i] == A[j]){
@@ -68,7 +69,18 @@ public class ArrayRotate {
 		for(int g = 0; g<A.length; g++){
 			if(A[g]>0) return A[g];
 		}
+		*/
+		List list = new ArrayList();
+		for(int i = 0; i < A.length; i++){
+			if(list.contains(A[i])){
+				//System.out.println(i+", "+A[i]);
+				list.remove(new Integer(A[i]));			
+			}else{
+				list.add(A[i]);					
+			}
+		}
 		
-		return ret;
+		//System.out.println(list.get(0));
+		return (int)list.get(0);
 	}
 }
