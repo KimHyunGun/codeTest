@@ -6,7 +6,7 @@ public class BinaryGap {
 		// TODO Auto-generated method stub
 		int tmpNum = 9;
 		String binString = Integer.toBinaryString(tmpNum);
-		binString = "11111001000000100";
+		binString = "1111100100000010010";
 		
 		int ret = 0;
 		for(int i = 0; i<binString.length(); i++){
