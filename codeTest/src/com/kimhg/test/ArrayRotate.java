@@ -21,7 +21,7 @@ public class ArrayRotate {
 		System.out.println("결과 : "+Arrays.toString(ret));
 	}
 	
-	//a
+	////
 	public int[] solution(int[] arr, int k){
 		for(int i = 1; i<=k; i++){
 			int lastIdxNum = arr[arr.length-1];
