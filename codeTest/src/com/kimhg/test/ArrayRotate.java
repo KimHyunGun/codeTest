@@ -17,8 +17,13 @@ public class ArrayRotate {
 		int[] arr1 = {3, 8, 9, 7, 6};
 		int rcnt = 3;
 		int[] ret = new ArrayRotate().solution(arr1, rcnt);
+		//System.out.println("결과 : "+Arrays.toString(ret));
 		
-		System.out.println("결과 : "+Arrays.toString(ret));
+		//OddOccurrencesInArray Submitted in: Java
+		int[] arr2 = {9, 3, 9, 3, 9, 7, 9};
+		int ret2 = new ArrayRotate().solution2(arr2);
+		System.out.println("결과 : "+ret2);
+		
 	}
 	
 	////
@@ -40,5 +45,26 @@ public class ArrayRotate {
 			//System.out.println(i+" >> "+Arrays.toString(arr));
 		}
 		return arr;
+	}
+
+	public int solution2(int[] A){
+		int ret = 0;
+		for(int i = 0; i<A.length; i++){
+			for(int j = i+1; j<A.length; j++){
+				if(A[i] > 0 && A[i] == A[j]){
+					//System.out.println(i+", "+j+" >> "+A[i]+", "+A[j]);
+					A[i] = -(A[i]);
+					A[j] = -(A[j]);
+					break;
+				}
+			}
+			//System.out.println(i+" >> "+A[i]);
+		}
+		
+		for(int g = 0; g<A.length; g++){
+			if(A[g]>0) return A[g];
+		}
+		
+		return ret;
 	}
 }
