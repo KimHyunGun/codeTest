@@ -2,7 +2,9 @@ package com.kimhg.test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -17,15 +19,21 @@ public class ArrayRotate {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		ArrayRotate ar = new ArrayRotate();
+		
 		int[] arr1 = {3, 8, 9, 7, 6};
 		int rcnt = 3;
-		int[] ret = new ArrayRotate().solution(arr1, rcnt);
+		//int[] ret = ar.solution(arr1, rcnt);
 		//System.out.println("결과 : "+Arrays.toString(ret));
 		
 		//OddOccurrencesInArray Submitted in: Java
-		int[] arr2 = {9, 3, 9, 3, 9, 7, 9};
-		int ret2 = new ArrayRotate().solution2(arr2);
+		int[] arr2 = {7, 9, 9, 7, 9, 3, 9, 7, 7, 8, 3};
+		System.out.println(Arrays.toString(arr2));
+		int ret2 = ar.solution2(arr2);
 		System.out.println("결과 : "+ret2);
+		
+		// random
+		//ar.getRandomArray(10, 5);
 		
 	}
 	
@@ -70,6 +78,7 @@ public class ArrayRotate {
 			if(A[g]>0) return A[g];
 		}
 		*/
+		/*
 		List list = new ArrayList();
 		for(int i = 0; i < A.length; i++){
 			if(list.contains(A[i])){
@@ -79,8 +88,34 @@ public class ArrayRotate {
 				list.add(A[i]);					
 			}
 		}
+		*/
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		for(int i = 0; i < A.length; i++){
+			Integer arrVal = A[i];
+			if(map.containsKey(arrVal)){
+				map.put(arrVal, map.get(arrVal)+1);
+			}else{
+				map.put(arrVal, 1);
+			}
+		}
 		
-		//System.out.println(list.get(0));
-		return (int)list.get(0);
+		for(Integer key : map.keySet()){
+			if(map.get(key) % 2 == 1){
+				ret = key;
+				break;
+			}
+		}
+		return ret;
+	}
+
+	public int[] getRandomArray(int size, int range){
+		
+		int[] aa = new int[size];
+		Random ran = new Random();
+		for(int i = 0; i < size; i++){
+			aa[i] = ran.nextInt(range)+1;
+		}
+		//System.out.println(Arrays.toString(aa));
+		return aa;
 	}
 }
