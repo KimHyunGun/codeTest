@@ -26,11 +26,10 @@ public class TapeEquilibrium {
 			firstSum += A[j-1];
 			secondSum = totalSum - firstSum; 
 			    
-			System.out.println(j+", |"+firstSum+" - "+secondSum+"|"+ Math.abs(firstSum-secondSum)+", "+totalSum);
+			//System.out.println(j+", |"+firstSum+" - "+secondSum+"|"+ Math.abs(firstSum-secondSum)+", "+totalSum);
 			int diffSum = Math.abs(firstSum-secondSum);
 			if(j == 1 || ret >= diffSum){
 				ret = diffSum;
-				System.out.println(ret+" , "+diffSum);
 		    }
 		}
 		
