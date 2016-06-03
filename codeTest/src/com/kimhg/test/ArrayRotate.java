@@ -21,16 +21,18 @@ public class ArrayRotate {
 		// TODO Auto-generated method stub
 		ArrayRotate ar = new ArrayRotate();
 		
-		int[] arr1 = {3, 8, 9, 7, 6};
+		int[] arr1 = {};
 		int rcnt = 3;
-		//int[] ret = ar.solution(arr1, rcnt);
-		//System.out.println("결과 : "+Arrays.toString(ret));
+		int[] ret = ar.solution(arr1, rcnt);
+		System.out.println("결과 : "+Arrays.toString(ret));
 		
+		/*
 		//OddOccurrencesInArray Submitted in: Java
 		int[] arr2 = {7, 9, 9, 7, 9, 3, 9, 7, 7, 8, 3};
 		System.out.println(Arrays.toString(arr2));
 		int ret2 = ar.solution2(arr2);
 		System.out.println("결과 : "+ret2);
+		*/
 		
 		// random
 		//ar.getRandomArray(10, 5);
@@ -38,24 +40,27 @@ public class ArrayRotate {
 	}
 	
 	////
-	public int[] solution(int[] arr, int k){
-		for(int i = 1; i<=k; i++){
-			int lastIdxNum = arr[arr.length-1];
-			int[] tmpArr = new int[arr.length-1];
-			for(int j = 0; j<arr.length-1; j++){
-				tmpArr[j] = arr[j]; 
+	public int[] solution(int[] A, int K){
+		if(A.length == 0)
+			return A;
+		
+		for(int i = 1; i<=K; i++){
+			int lastIdxNum = A[A.length-1];
+			int[] tmpArr = new int[A.length-1];
+			for(int j = 0; j<A.length-1; j++){
+				tmpArr[j] = A[j]; 
 			}
 			
-			for(int g = 0; g<arr.length; g++){
+			for(int g = 0; g<A.length; g++){
 				if(g == 0)
-					arr[0] = lastIdxNum;
+					A[0] = lastIdxNum;
 				else
-					arr[g] = tmpArr[g-1];
+					A[g] = tmpArr[g-1];
 			}
 			
-			//System.out.println(i+" >> "+Arrays.toString(arr));
+			//System.out.println(i+" >> "+Arrays.toString(A));
 		}
-		return arr;
+		return A;
 	}
 
 	public int solution2(int[] A){
