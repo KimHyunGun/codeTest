@@ -21,7 +21,7 @@ public class ArrayRotate {
 		// TODO Auto-generated method stub
 		ArrayRotate ar = new ArrayRotate();
 		
-		int[] arr1 = {};
+		int[] arr1 = {5,3,1,8,9};
 		int rcnt = 3;
 		int[] ret = ar.solution(arr1, rcnt);
 		System.out.println("결과 : "+Arrays.toString(ret));
