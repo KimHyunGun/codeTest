@@ -9,7 +9,7 @@ public class CodilityLesson {
 		
 		CodilityLesson cdl = new CodilityLesson();
 		
-		int[] arr1 = {2,1,3,4};
+		int[] arr1 = {2,3};
 		int ret = cdl.permMissingElemSolution(arr1);
 		System.out.println("결과 : "+ret);
 	}
@@ -46,23 +46,18 @@ public class CodilityLesson {
 	{1,3} -> 2
 	*/
 	public int permMissingElemSolution(int[] A){
-		int ret = 0;
 		Arrays.sort(A);
+		int ret = 0;
 		
-		if(A.length == 0){
-			ret = 1; // {} -> 1
-		}else{
+		if(A.length == 0)
+			ret = 1;
+		else{
+			ret = A[A.length-1]+1;
 			for(int i = 0; i < A.length; i++){
-				if(A.length == 1){
-					if(A[i] == 1)
-						ret = A[i]+1;  // {1} -> 2
-					else
-						ret = A[i]-1;  // {2) -> 1
-				}else{
-					if(A[i] != i+1){
-						ret = A[i]+1;
-						break;
-					}
+				System.out.println(i+", "+A[i]);
+				if(A[i] != i+1){
+					ret = A[i]-1;
+					break;
 				}
 			}
 		}
