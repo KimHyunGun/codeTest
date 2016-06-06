@@ -17,6 +17,10 @@ public class CodilityLesson4 {
 		int[] B = {4,1,3,2};
 		int ret2 = cdl.PermCheck(B);
 		System.out.println("결과 : "+ret2);
+
+		int[] C = {1,3,6,4,2,1};
+		int ret3 = cdl.MissingInteger(C);
+		System.out.println("결과 : "+ret3);
 	}
 
 	//////////////////////////////////////
@@ -60,5 +64,28 @@ public class CodilityLesson4 {
         }
         
         return ret;
+	}
+	
+	public int MissingInteger(int A[]){
+		
+		A = new int[]{-988778088,-2,5,1,3,0,-4,4};
+		boolean[] counter = new boolean[A.length + 1];
+        
+		for(int a : A){
+			if (a > 0 && a < counter.length){
+				counter[a - 1] = true;
+				System.out.println(">>"+a);
+			}
+		}
+		System.out.println(Arrays.toString(counter));
+        // Loop through the counter, if an element is false, return element index + 1 (it's a 0 index array!)
+        for(int j = 0; j < counter.length; j++){
+        	if(!counter[j]) 
+        		return j + 1;
+        }
+        // You SHOULDN'T get here. But just in case, return the Array length +1. Result will most likely be 1, the lowest
+        // possible integer.
+        return A.length + 1;
+
 	}
 }
