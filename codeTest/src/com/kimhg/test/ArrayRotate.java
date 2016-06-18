@@ -41,7 +41,8 @@ public class ArrayRotate {
 	
 	////
 	public int[] solution(int[] A, int K){
-		/*
+	
+		//https://codility.com/demo/results/trainingAFYB37-YKR/
 		int N = A.length;
 		
 		// K = 0, N <=1 대응
@@ -62,27 +63,7 @@ public class ArrayRotate {
 		}
 
 		return result;
-		*/
-		if(A.length == 0)
-			return A;
-		
-		for(int i = 1; i<=K; i++){
-			int lastIdxNum = A[A.length-1];
-			int[] tmpArr = new int[A.length-1];
-			for(int j = 0; j<A.length-1; j++){
-				tmpArr[j] = A[j]; 
-			}
-			
-			for(int g = 0; g<A.length; g++){
-				if(g == 0)
-					A[0] = lastIdxNum;
-				else
-					A[g] = tmpArr[g-1];
-			}
-			
-			//System.out.println(i+" >> "+Arrays.toString(A));
-		}
-		return A;
+
 	}
 
 	public int solution2(int[] A){
