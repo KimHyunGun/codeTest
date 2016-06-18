@@ -8,19 +8,27 @@ public class CodilityLesson4 {
 		// TODO Auto-generated method stub
 		
 		CodilityLesson4 cdl = new CodilityLesson4();
-		
+		//FrogRiverOne
 		int[] A = {1,3,1,4,2,3,5,4};
 		int X = 6;
 		int ret = cdl.FrogRiverOneSolution(X, A);
 		System.out.println("결과 : "+ret);
 		
+		//PermCheck
 		int[] B = {4,1,3,2};
 		int ret2 = cdl.PermCheck(B);
 		System.out.println("결과 : "+ret2);
-
+		
+		//MissingCheck
 		int[] C = {1,3,6,4,2,1};
 		int ret3 = cdl.MissingInteger(C);
 		System.out.println("결과 : "+ret3);
+
+		//MaxConuters
+		int[] D = {1,3,1,4,2,3,5,4};
+		int Y = 6;
+		int[] ret4 = cdl.MaxCounters(Y, D);
+		System.out.println("결과 : "+ret4);
 	}
 
 	//////////////////////////////////////
@@ -66,18 +74,24 @@ public class CodilityLesson4 {
         return ret;
 	}
 	
+	/**
+	 * MissingCheck
+	 *  - https://codility.com/demo/results/training33UQZ8-56G/
+	 * @param A
+	 * @return
+	 */
 	public int MissingInteger(int A[]){
 		
-		A = new int[]{-988778088,-2,5,1,3,0,-4,4};
+		A = new int[]{5,8,5,1,5,0,2,4,20};
 		boolean[] counter = new boolean[A.length + 1];
         
 		for(int a : A){
 			if (a > 0 && a < counter.length){
 				counter[a - 1] = true;
-				System.out.println(">>"+a);
+				//System.out.println(">>"+a);
 			}
 		}
-		System.out.println(Arrays.toString(counter));
+		//System.out.println(Arrays.toString(counter));
         // Loop through the counter, if an element is false, return element index + 1 (it's a 0 index array!)
         for(int j = 0; j < counter.length; j++){
         	if(!counter[j]) 
@@ -87,5 +101,9 @@ public class CodilityLesson4 {
         // possible integer.
         return A.length + 1;
 
+	}
+	
+	public int[] MaxCounters(int N, int[] A){
+		return null;
 	}
 }
