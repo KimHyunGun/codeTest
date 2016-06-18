@@ -41,6 +41,28 @@ public class ArrayRotate {
 	
 	////
 	public int[] solution(int[] A, int K){
+		/*
+		int N = A.length;
+		
+		// K = 0, N <=1 대응
+		if (N <= 1 || K == 0) {
+			return A;
+		}
+
+		// K >= N 대응
+		K = K % N;
+
+		int[] result = new int[N];
+		for (int i = 0; i < N; i++) {
+			if (i+K < N) {
+				result[i + K] = A[i];
+			} else {
+				result[i + K - N] = A[i];
+			}
+		}
+
+		return result;
+		*/
 		if(A.length == 0)
 			return A;
 		
