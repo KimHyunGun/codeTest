@@ -27,6 +27,7 @@ public class ArrayMerge {
 		System.out.println("Array Merge 2 : "+Arrays.toString(arrSum2));
 		
 		// array sorting(asc)
+		/*
 		for(int i = arrSum.length-1; i>=0; i--){
 			for(int j = 0; j<i; j++){
 				if(arrSum[j]>arrSum[j+1]){
@@ -34,9 +35,21 @@ public class ArrayMerge {
 					arrSum[j] = arrSum[j+1];
 					arrSum[j+1] = tmpVal;
 					
-					//System.out.println(">> : "+Arrays.toString(arrSum));
+					System.out.println("i >> "+i+", j >> "+j+", >> : "+Arrays.toString(arrSum));
 				}
 				
+			}
+		}
+		*/
+		for(int i = 1; i <= arrSum.length; i++){
+			for(int j = 0; j < arrSum.length - i; j++){
+				if(arrSum[j]>arrSum[j+1]){
+					int tmpVal = arrSum[j];
+					arrSum[j] = arrSum[j+1];
+					arrSum[j+1] = tmpVal;
+					
+					System.out.println("i >> "+i+", j >> "+j+", >> : "+Arrays.toString(arrSum));
+				}
 			}
 		}
 		System.out.println("Array sorting(asc) : "+Arrays.toString(arrSum));
