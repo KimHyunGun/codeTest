@@ -39,12 +39,10 @@ public class ArrayRotate {
 		
 	}
 	
-	////
+	//https://codility.com/demo/results/trainingAFYB37-YKR/
 	public int[] solution(int[] A, int K){
 	
-		//https://codility.com/demo/results/trainingAFYB37-YKR/
 		int N = A.length;
-		
 		// K = 0, N <=1 대응
 		if (N <= 1 || K == 0) {
 			return A;
@@ -61,12 +59,21 @@ public class ArrayRotate {
 				result[i + K - N] = A[i];
 			}
 		}
-
 		return result;
-
 	}
 
-	public int solution2(int[] A){
+	//https://codility.com/demo/results/trainingBX2XJH-97Q/
+	public int[] solution_1(int[] A, int K) {
+		int[] result = new int[A.length];
+		
+		for (int i = 0; i < A.length; i++) {
+			result[(i + K) % A.length] = A[i];
+		}
+		
+		return result;
+	}
+
+public int solution2(int[] A){
 		int ret = 0;
 		/*
 		for(int i = 0; i<A.length; i++){
