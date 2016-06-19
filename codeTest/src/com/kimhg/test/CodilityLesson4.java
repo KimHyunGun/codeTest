@@ -15,7 +15,7 @@ public class CodilityLesson4 {
 		System.out.println("결과 : "+ret);
 		
 		//PermCheck
-		int[] B = {4,1,3,2};
+		int[] B = {2,4,3,1,5};
 		int ret2 = cdl.PermCheck(B);
 		System.out.println("결과 : "+ret2);
 		
@@ -64,6 +64,7 @@ public class CodilityLesson4 {
 	 * @return
 	 */
 	public int PermCheck(int A[]){
+		/*
         int ret = 1;
         Arrays.sort(A);
         for(int i = 0; i < A.length; i++){
@@ -72,6 +73,27 @@ public class CodilityLesson4 {
         }
         
         return ret;
+        */
+        // write your code in Java SE 8
+		// https://codility.com/demo/results/trainingDX5HFF-SVS/
+		boolean[] chArr = new boolean[A.length];
+        for(int i = 0; i < A.length; i++){
+            //totalSum1 += i+1;
+        	//System.out.println(A[i]);
+        	if(A[i] > A.length || chArr[A[i]-1])
+        		return 0;
+        	else
+        		chArr[A[i]-1] = true;
+        }
+        
+        System.out.println(">>>" + Arrays.toString(chArr));
+        for(int i = 0; i < chArr.length; i++){
+        	if(!chArr[i])
+        		return 0;
+        }
+        
+        return 1;
+		
 	}
 	
 	/**

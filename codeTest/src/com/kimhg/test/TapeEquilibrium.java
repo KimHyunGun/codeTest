@@ -21,12 +21,13 @@ public class TapeEquilibrium {
 			totalSum += A[i];
 		}
 		int firstSum = 0;
+		
 		int secondSum = 0;
 		for(int j = 1; j < A.length; j++){
 			firstSum += A[j-1];
 			secondSum = totalSum - firstSum; 
 			    
-			//System.out.println(j+", |"+firstSum+" - "+secondSum+"|"+ Math.abs(firstSum-secondSum)+", "+totalSum);
+			System.out.println(j+", |"+firstSum+" - "+secondSum+"|"+ Math.abs(firstSum-secondSum)+", "+totalSum);
 			int diffSum = Math.abs(firstSum-secondSum);
 			if(j == 1 || ret >= diffSum){
 				ret = diffSum;

@@ -9,7 +9,7 @@ public class CodilityLesson {
 		
 		CodilityLesson cdl = new CodilityLesson();
 		
-		int[] arr1 = {2,3};
+		int[] arr1 = {};
 		int ret = cdl.permMissingElemSolution(arr1);
 		System.out.println("결과 : "+ret);
 	}
@@ -54,7 +54,7 @@ public class CodilityLesson {
 		else{
 			ret = A[A.length-1]+1;
 			for(int i = 0; i < A.length; i++){
-				System.out.println(i+", "+A[i]);
+				//System.out.println(i+", "+A[i]);
 				if(A[i] != i+1){
 					ret = A[i]-1;
 					break;
