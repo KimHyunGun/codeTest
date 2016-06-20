@@ -8,7 +8,8 @@ public class ArraySort {
 		// TODO Auto-generated method stub
 		//[선택정렬] 테스트
 		System.out.println("=====[선택정렬]=====");
-		int a[] = {68, 9, 32, 2, 14, 7, 31, 26};        
+		//int a[] = {68, 9, 32, 2, 14, 7, 31, 26};        
+		int a[] = {1,3,4,2,5};
 		Sort s = new Sort();
 		System.out.printf("\n정렬할 원소 :");
 		System.out.println(Arrays.toString(a));
@@ -18,7 +19,8 @@ public class ArraySort {
 		//[버블정렬] 테스트            
 		System.out.println();
 		System.out.println("=====[버블정렬]=====");
-		int b[] = {68, 9, 32, 2, 14, 7, 31, 26};
+		//int b[] = {68, 9, 32, 2, 14, 7, 31, 26};
+		int b[] = {1,3,4,2,5};
 		System.out.printf("\n정렬할 원소 :");
 		System.out.println(Arrays.toString(b));
 		System.out.println();
@@ -28,7 +30,8 @@ public class ArraySort {
 		//[삽입정렬] 테스트            
 		System.out.println();
 		System.out.println("=====[삽입정렬]=====");
-		int c[] = {68, 9, 32, 2, 14, 7, 31, 26};
+		//int c[] = {68, 9, 32, 2, 14, 7, 31, 26};
+		int c[] = {1,3,4,2,5};
 		System.out.printf("\n정렬할 원소 :");
 		System.out.println(Arrays.toString(c));
 		System.out.println();
@@ -57,11 +60,9 @@ class Sort {
                 }
             }
             swap(a, min, i); 
-            System.out.printf("\n선택 정렬 %d 단계 : ", i+1);
-            for(int v : a) {
-                System.out.printf("%3d ", v);
-            }
-            //System.out.println(Arrays.toString(a));            
+            System.out.printf("선택 정렬 %d 단계 : ", i+1);
+
+            System.out.println(Arrays.toString(a));            
         }
         System.out.println();
     }
@@ -74,15 +75,12 @@ class Sort {
     public void bubbleSort(int a[]) {
         int size = a.length;
         for(int i=size-1; i>0; i--) {
-            System.out.printf("\n버블 정렬 %d 단계 : ", size-i);
+            System.out.printf("버블 정렬 %d 단계 :\n", size-i);
             for(int j=0; j<i; j++) {
                 if(a[j] > a[j+1]) {
                     swap(a,j,j+1);
                 }
-                System.out.printf("\n\t");
-                for(int v : a) {
-                    System.out.printf("%3d ", v);
-                }
+                System.out.println(Arrays.toString(a));
             }            
         }
         System.out.println();
@@ -104,10 +102,8 @@ class Sort {
             }
             
             a[j] = temp;
-            System.out.printf("\n삽입정렬 %d 단계 : ",i);
-            for(int v : a) {
-                System.out.printf("%3d ", v);
-            }            
+            System.out.printf("삽입정렬 %d 단계 : ",i);
+            System.out.println(Arrays.toString(a));          
         }
         System.out.println();
     }
