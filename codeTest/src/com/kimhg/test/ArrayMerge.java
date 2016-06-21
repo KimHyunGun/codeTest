@@ -41,6 +41,7 @@ public class ArrayMerge {
 			}
 		}
 		*/
+		arrSum = new int[]{1,3,4,5,2};
 		for(int i = 1; i <= arrSum.length; i++){
 			for(int j = 0; j < arrSum.length - i; j++){
 				if(arrSum[j]>arrSum[j+1]){
