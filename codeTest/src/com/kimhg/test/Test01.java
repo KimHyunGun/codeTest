@@ -1,8 +1,10 @@
 package com.kimhg.test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 public class Test01 {
 
@@ -21,6 +23,31 @@ public class Test01 {
 		Solution3 sol3 = new Solution3();
 		int[] tmpArr = {1,3,4,2,5};
 		System.out.println("결과 : "+sol3.solution(tmpArr));
+
+		Solution4 sol4 = new Solution4();
+		int[] tmpArr2 = {-1,3,-4,5,1,-6,2,1};
+		System.out.println("결과 : "+sol4.solution(tmpArr2));
+	
+
+		List<String> sList = new ArrayList<String>();
+		sList.add("a");
+		sList.add("b");
+		sList.add("c");
+		for(String s : sList)
+			System.out.print(s);
+		
+		// List -> String[];
+		String[] sArr = new String[sList.size()];
+		sArr = sList.toArray(sArr);
+		System.out.println(Arrays.toString(sArr));
+
+		// String[] -> List
+		//List<String> sList2 = new ArrayList<String>(Arrays.asList(sArr));
+		List<String> sList2 = Arrays.asList(sArr);
+		for(String s : sList2)
+			System.out.print(s);
+		
+		
 	}
 
 }
@@ -68,9 +95,71 @@ class Solution2{
 // int 배열에서 단 한번만 이동으로 정렬이 가능한지 true, false 반환
 class Solution3{
 	public boolean solution(int[] N){
-		for(int i = 0; i < N.length; i++){
-			System.out.println(i+">> "+N[i]);
+		//N = new int[]{2,3,4,1,5};
+		N = new int[]{7,3,4,5,1};
+		//N = new int[]{-2,1};
+		
+		boolean ret = false;
+		int size = N.length;
+		
+		// 각 index의 값을 하나씩 제외한 배열을 생성해서 정렬 여부 판단.
+		for(int i = 0; i < size; i++){
+			int[] tmpArr = new int[size-1];
+			if(i == 0){
+				System.arraycopy(N, 1, tmpArr, 0, size-1);
+			}else if(i>0 && i < size-1){
+				System.arraycopy(N, 0, tmpArr, 0, i);
+				System.arraycopy(N, i+1, tmpArr, i, size-i-1);
+			}else{
+				System.arraycopy(N, 0, tmpArr, 0, size-1);
+			}
+
+			//System.out.println(i+", "+Arrays.toString(tmpArr));
+			
+			if(isSort(tmpArr))
+				return true;
+			
 		}
-		return false;
+		return ret;
+	}
+	
+	public boolean isSort(int[] N){
+		boolean ret = true;
+		if(N.length <= 1)
+			return ret;
+		
+		for(int i = 0; i < N.length-1; i++){
+			if(N[i]>N[i+1]){
+				return false;
+			}
+		}
+		return ret;
+	}
+}
+
+//https://codility.com/public-report-detail/
+//Equi
+//Find an index in an array such that its prefix sum equals its suffix sum.
+class Solution4{
+	public int solution(int[] N){
+		int ret = -1;
+		int totalSum = 0;
+		for(int i = 0; i < N.length; i++){
+			totalSum += N[i];
+		}
+		
+		int prevSum = 0;
+		int nextSum = 0;
+		for(int i = 0; i < N.length; i++){
+			if(i>0)
+				prevSum += N[i-1];
+			nextSum = totalSum - prevSum - N[i];
+			
+			//System.out.println("i="+i+", preveSum="+prevSum+", nextSum="+nextSum);
+			if(prevSum == nextSum)
+				return i;
+		}
+		
+		return ret;
 	}
 }
