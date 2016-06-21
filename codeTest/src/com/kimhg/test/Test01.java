@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class Test01 {
 
@@ -12,10 +13,14 @@ public class Test01 {
 		// TODO Auto-generated method stub
 		Solution1 sol1 = new Solution1();
 		String S = "00-44  48 5555 8361";
+		System.out.println("Solution1 결과 : "+sol1.solution(S));
+		
 		S = "0 - 22 1985--324";
+		System.out.println("Solution1 결과 : "+sol1.solution(S));
 		S = "555372654";
 		System.out.println("Solution1 결과 : "+sol1.solution(S));
-
+		
+		/*
 		Solution2 sol2 = new Solution2();
 		int N = 333;
 		System.out.println("Solution2 결과 : "+sol2.solution(N));
@@ -48,7 +53,13 @@ public class Test01 {
 		for(String s : sList2)
 			System.out.print(s);
 		
+		System.out.println();
+		// Math
+		System.out.println( (int)Math.ceil((5 / (double)2) ) );
 		
+		Random ran = new Random();
+		System.out.println(ran.nextInt(4));
+		*/
 	}
 
 }
@@ -58,11 +69,23 @@ class Solution1{
 	public String solution(String S){
 		S = S.replaceAll("[ -]", "");
 		int chCnt = 0;
+		int numSize = S.length();
+		int numBlockSize = 3;
+
+		System.out.println(numSize);
 		StringBuffer ret = new StringBuffer();
-		for(int i = 0; i < S.length(); i++){
+		for(int i = 0; i < numSize; i++){
 			chCnt++;
 			ret.append(S.charAt(i));
-			if(chCnt==3 && i < S.length() - 1){
+			//System.out.println(">>"+i+", "+ (numSize / (3)) );
+			if(numSize - (i+1) ==2 && numSize % 3 != 0){
+				//System.out.println(">>>>"+i);
+				numBlockSize = 2;
+			}
+			
+			if(chCnt>=numBlockSize && i < numSize - 1){
+				//System.out.println(">>---------");
+				
 				ret.append('-');
 				chCnt = 0;
 			}
