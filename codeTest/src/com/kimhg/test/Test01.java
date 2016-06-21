@@ -14,21 +14,22 @@ public class Test01 {
 		String S = "00-44  48 5555 8361";
 		S = "0 - 22 1985--324";
 		S = "555372654";
-		System.out.println("결과 : "+sol1.solution(S));
+		System.out.println("Solution1 결과 : "+sol1.solution(S));
 
 		Solution2 sol2 = new Solution2();
 		int N = 333;
-		System.out.println("결과 : "+sol2.solution(N));
+		System.out.println("Solution2 결과 : "+sol2.solution(N));
 		
 		Solution3 sol3 = new Solution3();
 		int[] tmpArr = {1,3,4,2,5};
-		System.out.println("결과 : "+sol3.solution(tmpArr));
+		System.out.println("Solution3 결과 : "+sol3.solution(tmpArr));
 
 		Solution4 sol4 = new Solution4();
 		int[] tmpArr2 = {-1,3,-4,5,1,-6,2,1};
-		System.out.println("결과 : "+sol4.solution(tmpArr2));
+		System.out.println("Solution4 결과 : "+sol4.solution(tmpArr2));
 	
-
+		
+		// String[] to List testing
 		List<String> sList = new ArrayList<String>();
 		sList.add("a");
 		sList.add("b");
