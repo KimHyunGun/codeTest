@@ -6,11 +6,14 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Test01 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		/*
 		Solution1 sol1 = new Solution1();
 		String S = "00-44  48 5555 8361";
 		System.out.println("Solution1 결과 : "+sol1.solution(S));
@@ -20,7 +23,6 @@ public class Test01 {
 		S = "555372654";
 		System.out.println("Solution1 결과 : "+sol1.solution(S));
 		
-		/*
 		Solution2 sol2 = new Solution2();
 		int N = 333;
 		System.out.println("Solution2 결과 : "+sol2.solution(N));
@@ -32,8 +34,18 @@ public class Test01 {
 		Solution4 sol4 = new Solution4();
 		int[] tmpArr2 = {-1,3,-4,5,1,-6,2,1};
 		System.out.println("Solution4 결과 : "+sol4.solution(tmpArr2));
-	
+		*/
 		
+		Solution5 sol5 = new Solution5();
+		//String A = "15:15:00";
+		//String B = "15:15:12";
+		String A = "22:22:21";
+		String B = "22:22:23";
+		
+		System.out.println("Solution4 결과 : "+sol5.solution(A, B));
+
+		
+		/*
 		// String[] to List testing
 		List<String> sList = new ArrayList<String>();
 		sList.add("a");
@@ -182,6 +194,37 @@ class Solution4{
 			//System.out.println("i="+i+", preveSum="+prevSum+", nextSum="+nextSum);
 			if(prevSum == nextSum)
 				return i;
+		}
+		
+		return ret;
+	}
+}
+
+// digital clock, interesting point
+class Solution5{
+	public int solution(String A, String B){
+		int numA = Integer.parseInt(A.replaceAll(":", ""));
+		int numB = Integer.parseInt(B.replaceAll(":", ""));
+		System.out.println(numA+","+numB);
+		
+		int ret = 0;
+		for(int i = numA; i <= numB; i++){
+			String strSecond = String.valueOf(i).substring(2, 4);
+			String strMinute = String.valueOf(i).substring(4);
+			
+			// second 59 > 0 or minute 59 > 0 제외
+			if( Integer.parseInt(strSecond) > 59 || Integer.parseInt(strMinute) > 59)
+				continue;
+			
+			Set<Integer> tree = new TreeSet<Integer>();
+			for(int j = 0; j < String.valueOf(i).length(); j++){
+				tree.add(Integer.parseInt(String.valueOf(i).charAt(j)+""));
+			}
+			
+			if(tree.size()<=2){
+				ret++;
+				//System.out.println(">>>"+i);
+			}
 		}
 		
 		return ret;
