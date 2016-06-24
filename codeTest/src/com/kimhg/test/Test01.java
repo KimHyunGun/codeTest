@@ -40,7 +40,7 @@ public class Test01 {
 		//String A = "15:15:00";
 		//String B = "15:15:12";
 		String A = "22:22:21";
-		String B = "22:22:23";
+		String B = "22:23:23";
 		
 		System.out.println("Solution4 결과 : "+sol5.solution(A, B));
 
@@ -201,6 +201,13 @@ class Solution4{
 }
 
 // digital clock, interesting point
+/*
+	15:15:00 ~ 15:15:12 사이에는 15:15:00, 15:15:01 ... 15:15:12 까지 13개의 시간이 존재함.
+	각각의 시간값은 6자리의 숫자로 구성이 되는데, 이때 6개의 수 중에서 다른 수가 최대 2 이하가 되는 것이 흥미로운 점이다.
+	따라서 이경우,, 15:15:11 만 해당한다.
+	1, 5 이렇게 서로다른 수가 2개이므로....
+	
+*/
 class Solution5{
 	public int solution(String A, String B){
 		int numA = Integer.parseInt(A.replaceAll(":", ""));
@@ -212,7 +219,7 @@ class Solution5{
 			String strSecond = String.valueOf(i).substring(2, 4);
 			String strMinute = String.valueOf(i).substring(4);
 			
-			// second 59 > 0 or minute 59 > 0 제외
+			// second  > 59 or minute > 59 제외
 			if( Integer.parseInt(strSecond) > 59 || Integer.parseInt(strMinute) > 59)
 				continue;
 			
