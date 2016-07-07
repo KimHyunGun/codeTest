@@ -8,7 +8,7 @@ public class PositionJump {
 		// TODO Auto-generated method stub
 		PositionJump pj = new PositionJump();
 		
-		int ret = pj.solution(1, 1000000000, 2);
+		int ret = pj.solution(3, 100, 7);
 		System.out.println("결과 : "+ret);
 	}
 
@@ -26,8 +26,7 @@ public class PositionJump {
 	        ret = distance/D;
 	    }
 		*/
-		
-	    ret = (int) Math.ceil( (Y-X) / (double)D );
+		ret = (int) Math.ceil( (Y-X) / (double)D );
 	    
 		return ret;
 	}

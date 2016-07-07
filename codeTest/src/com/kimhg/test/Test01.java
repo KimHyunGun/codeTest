@@ -13,29 +13,35 @@ public class Test01 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		/*
 		Solution1 sol1 = new Solution1();
 		String S = "00-44  48 5555 8361";
-		System.out.println("Solution1 결과 : "+sol1.solution(S));
+		//System.out.println("Solution1 결과 : "+sol1.solution(S));
 		
 		S = "0 - 22 1985--324";
 		System.out.println("Solution1 결과 : "+sol1.solution(S));
-		S = "555372654";
-		System.out.println("Solution1 결과 : "+sol1.solution(S));
+		//S = "555372654";
+		//System.out.println("Solution1 결과 : "+sol1.solution(S));
 		
+		/*
 		Solution2 sol2 = new Solution2();
 		int N = 333;
 		System.out.println("Solution2 결과 : "+sol2.solution(N));
+		*/
 		
+		/*
 		Solution3 sol3 = new Solution3();
 		int[] tmpArr = {1,3,4,2,5};
 		System.out.println("Solution3 결과 : "+sol3.solution(tmpArr));
-
+		*/
+		
+		/*
 		Solution4 sol4 = new Solution4();
-		int[] tmpArr2 = {-1,3,-4,5,1,-6,2,1};
+		//int[] tmpArr2 = {-1,3,-4,5,1,-6,2,1};
+		int[] tmpArr2 = {-7,1,5,2,-4,3,0};
 		System.out.println("Solution4 결과 : "+sol4.solution(tmpArr2));
 		*/
 		
+		/*
 		Solution5 sol5 = new Solution5();
 		//String A = "15:15:00";
 		//String B = "15:15:12";
@@ -43,7 +49,7 @@ public class Test01 {
 		String B = "22:23:23";
 		
 		System.out.println("Solution4 결과 : "+sol5.solution(A, B));
-
+		*/
 		
 		/*
 		// String[] to List testing
@@ -80,6 +86,7 @@ public class Test01 {
 class Solution1{
 	public String solution(String S){
 		S = S.replaceAll("[ -]", "");
+		S = "1234567890123";
 		int chCnt = 0;
 		int numSize = S.length();
 		int numBlockSize = 3;
@@ -91,7 +98,7 @@ class Solution1{
 			ret.append(S.charAt(i));
 			//System.out.println(">>"+i+", "+ (numSize / (3)) );
 			if(numSize - (i+1) ==2 && numSize % 3 != 0){
-				//System.out.println(">>>>"+i);
+				System.out.println(">>>>"+i);
 				numBlockSize = 2;
 			}
 			
@@ -132,9 +139,37 @@ class Solution2{
 class Solution3{
 	public boolean solution(int[] N){
 		//N = new int[]{2,3,4,1,5};
-		N = new int[]{7,3,4,5,1};
-		//N = new int[]{-2,1};
+		//N = new int[]{7,3,4,5,1};
+		//N = new int[]{1};
+		//N = new int[]{1,5,2,4,6};
+		//N = new int[]{1,4,6,2};
 		
+		
+		boolean ret = true;
+		int size = N.length;
+		if(size<=1)
+			return ret;
+		
+		for(int i = 1; i < size; i++){
+			//System.out.println("i="+i+", "+N[i]+", i-1="+(i-1)+", "+N[i-1]);
+			if(N[i] < N[i-1]){
+				//System.out.println(">>>> "+i+", "+N[i]);
+				if(i < size-1){
+					for(int j = i+1; j < size; j++){
+						if(j == i+1){
+							if(N[j]<N[i-1])
+								return false;
+						}else{
+							if(N[j]<N[j-1])
+								return false;
+						}
+					}
+				}
+			}
+		}	
+		return ret;
+		
+		/*
 		boolean ret = false;
 		int size = N.length;
 		
@@ -157,6 +192,7 @@ class Solution3{
 			
 		}
 		return ret;
+		*/
 	}
 	
 	public boolean isSort(int[] N){
@@ -176,6 +212,7 @@ class Solution3{
 //https://codility.com/public-report-detail/
 //Equi
 //Find an index in an array such that its prefix sum equals its suffix sum.
+//int[] tmpArr2 = {-7,1,5,2,-4,3,0};
 class Solution4{
 	public int solution(int[] N){
 		int ret = -1;
@@ -183,7 +220,7 @@ class Solution4{
 		for(int i = 0; i < N.length; i++){
 			totalSum += N[i];
 		}
-		
+		System.out.println("totalSum : "+totalSum);
 		int prevSum = 0;
 		int nextSum = 0;
 		for(int i = 0; i < N.length; i++){
@@ -191,7 +228,7 @@ class Solution4{
 				prevSum += N[i-1];
 			nextSum = totalSum - prevSum - N[i];
 			
-			//System.out.println("i="+i+", preveSum="+prevSum+", nextSum="+nextSum);
+			System.out.println("i="+i+", preveSum="+prevSum+", nextSum="+nextSum);
 			if(prevSum == nextSum)
 				return i;
 		}
