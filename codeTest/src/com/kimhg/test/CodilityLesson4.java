@@ -106,23 +106,29 @@ public class CodilityLesson4 {
 	 */
 	public int MissingInteger(int A[]){
 		// write your code in Java SE 8
-		A = new int[]{4};  // 1개 원소일때 예외처리.. to do..
+		// https://codility.com/demo/results/training9HDJ2J-FNE/
+		// 88% {-2,2}
+		A = new int[]{-2,2};
 		Arrays.sort(A);
-		//System.out.println(">> " + Arrays.toString(A));
-		boolean isMinusVal = true;
-		for(int i = 0; i < A.length-1; i++){
-			if(A[i] > 0) 
-				isMinusVal = false;
-			if(A[i] >= 0 && A[i+1] - A[i] > 1 ){
-				//System.out.println(">> " + A[i] );
-				return A[i]+1;
+		System.out.println(">> " + Arrays.toString(A));
+		if(A.length == 1){
+			if(A[0] == 1)
+				return 2;
+			else
+				return 1; //
+		}else{
+			if(A[A.length-1] <= 0 || A[0] > 1){
+				return 1;
+			}else{
+				for(int i = 0; i < A.length-1; i++){
+					if(A[i] >= 0 && A[i+1] - A[i] > 1 ){
+						//System.out.println(">> " + A[i] );
+						return A[i]+1;
+					}
+				}
 			}
-		}
-		System.out.println("3333");
-		if(isMinusVal)
-			return 1;
-		else
 			return A[A.length-1]+1;
+		}
 
 		/*
 		//https://codility.com/demo/results/training33UQZ8-56G/ 
