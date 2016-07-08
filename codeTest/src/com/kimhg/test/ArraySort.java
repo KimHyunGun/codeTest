@@ -9,7 +9,7 @@ public class ArraySort {
 		//[선택정렬] 테스트
 		System.out.println("=====[선택정렬]=====");
 		//int a[] = {68, 9, 32, 2, 14, 7, 31, 26};        
-		int a[] = {1,3,4,2,5};
+		int a[] = {3,5,1,2,4};
 		Sort s = new Sort();
 		System.out.printf("\n정렬할 원소 :");
 		System.out.println(Arrays.toString(a));
@@ -20,7 +20,7 @@ public class ArraySort {
 		System.out.println();
 		System.out.println("=====[버블정렬]=====");
 		//int b[] = {68, 9, 32, 2, 14, 7, 31, 26};
-		int b[] = {1,3,4,2,5};
+		int b[] = {3,5,1,2,4};
 		System.out.printf("\n정렬할 원소 :");
 		System.out.println(Arrays.toString(b));
 		System.out.println();
@@ -31,7 +31,7 @@ public class ArraySort {
 		System.out.println();
 		System.out.println("=====[삽입정렬]=====");
 		//int c[] = {68, 9, 32, 2, 14, 7, 31, 26};
-		int c[] = {1,3,4,2,5};
+		int c[] = {3,2,1,5,4};
 		System.out.printf("\n정렬할 원소 :");
 		System.out.println(Arrays.toString(c));
 		System.out.println();

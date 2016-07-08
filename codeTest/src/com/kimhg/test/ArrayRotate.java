@@ -23,7 +23,7 @@ public class ArrayRotate {
 		
 		int[] arr1 = {5,3,1,8,9};
 		int rcnt = 3;
-		int[] ret = ar.solution(arr1, rcnt);
+		int[] ret = ar.cyclicRotationSolution(arr1, rcnt);
 		System.out.println("결과 : "+Arrays.toString(ret));
 		
 		/*
@@ -40,7 +40,7 @@ public class ArrayRotate {
 	}
 	
 	//https://codility.com/demo/results/trainingAFYB37-YKR/
-	public int[] solution(int[] A, int K){
+	public int[] cyclicRotationSolution(int[] A, int K){
 	
 		int N = A.length;
 		// K = 0, N <=1 대응
@@ -61,9 +61,32 @@ public class ArrayRotate {
 		}
 		return result;
 	}
-
+	
+	// https://codility.com/demo/results/trainingCEMZXD-YZ7/
+	public int[] cyclicRotationSolution2(int[] A, int K) {
+		// write your code in Java SE 8
+		
+		int size = A.length;
+		if(size == 0 || K == 0)
+		    return A;
+		    
+		K = K % size;
+		
+		for(int i = 0; i < K; i++){
+			for(int j = size-1; j > 0; j--){
+			    //System.out.println(A[j]);
+			    int tmp = A[j];
+			    A[j] = A[j-1];
+			    A[j-1] = tmp;
+			}
+			//System.out.println(i+", "+Arrays.toString(A));
+		}
+		
+		return A;
+	}
+	
 	//https://codility.com/demo/results/trainingBX2XJH-97Q/
-	public int[] solution_1(int[] A, int K) {
+	public int[] cyclicRotationSolution3(int[] A, int K) {
 		int[] result = new int[A.length];
 		
 		for (int i = 0; i < A.length; i++) {
@@ -74,36 +97,34 @@ public class ArrayRotate {
 	}
 
 public int solution2(int[] A){
+		/*
+		// https://codility.com/demo/results/training29WK37-5M4/
 		int ret = 0;
-		/*
-		for(int i = 0; i<A.length; i++){
-			for(int j = i+1; j<A.length; j++){
-				if(A[i] > 0 && A[i] == A[j]){
-					//System.out.println(i+", "+j+" >> "+A[i]+", "+A[j]);
-					A[i] = -(A[i]);
-					A[j] = -(A[j]);
-					break;
-				}
-			}
-			//System.out.println(i+" >> "+A[i]);
-			//
-		}
-
-		for(int g = 0; g<A.length; g++){
-			if(A[g]>0) return A[g];
-		}
+        Arrays.sort(A);
+        
+        int beforeVal = 0;
+        int chCnt = 0;
+        for(int i = 0; i < A.length; i++){
+            if(i == 0 || A[i] == beforeVal){
+                beforeVal = A[i];
+                chCnt++;
+                continue;
+            }
+            
+            //System.out.println(i+", "+beforeVal+", "+chCnt);
+            if(A[i] != beforeVal){
+                if(chCnt % 2 == 1)
+                    return beforeVal;
+                else{
+                    chCnt = 1;
+                    beforeVal = A[i];
+                }        
+            }  
+        }
+        return beforeVal;
 		*/
-		/*
-		List list = new ArrayList();
-		for(int i = 0; i < A.length; i++){
-			if(list.contains(A[i])){
-				//System.out.println(i+", "+A[i]);
-				list.remove(new Integer(A[i]));			
-			}else{
-				list.add(A[i]);					
-			}
-		}
-		*/
+		
+		int ret = 0;
 		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 		for(int i = 0; i < A.length; i++){
 			Integer arrVal = A[i];
