@@ -9,7 +9,7 @@ public class Test03 {
 		Test03 sol1 = new Test03();
 		//int ret = sol1.solution(3, 7);
 		
-		int ret2 = sol1.solution2(-10, 5);
+		int ret2 = sol1.solution2(0, 0);
 		System.out.println("solution2 결과 : "+ ret2);
 		
 		//String S = "We test coders. Give us a try?";

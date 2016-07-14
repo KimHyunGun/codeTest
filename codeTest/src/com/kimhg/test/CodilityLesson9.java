@@ -25,12 +25,38 @@ public class CodilityLesson9 {
 	 * @description :
 	 *  https://codility.com/demo/results/trainingVGNEZN-JTG/
 	 *   - Correctness 100%, Performance 28% , score 61%, timeout...
+	 *  https://rafal.io/posts/codility-max-double-slice-sum.html
 	 * @변경이력 :
 	 * @param A
 	 * @return
 	 */
 	public int MaxDoubleSliceSumSolution(int[] A){
+		//A = new int[]{3,2,6,-1,4,5,-1,2};
+		A = new int[]{3,2,6,1,4,5,1,2};
+		
 		System.out.println(Arrays.toString(A));
+		int maxSum = 0;
+		int[] tmpArr = new int[A.length-2];
+		System.arraycopy(A, 1, tmpArr, 0, A.length-2);
+		Arrays.sort(tmpArr);
+		int negativeNumCnt = 0;
+		int positiveNumCnt = 0;
+		for(int i = 0; i < tmpArr.length; i++){
+			System.out.println(">> " + tmpArr[i]);
+			if(tmpArr[i]>0){
+				maxSum += tmpArr[i];
+				positiveNumCnt++;
+			}else{
+				negativeNumCnt++;
+			}
+		}
+		
+		if(positiveNumCnt == tmpArr.length)
+			maxSum -= tmpArr[0];
+		
+		return maxSum;
+		
+		/*
 		int size = A.length;
 		int oneSum = 0;
 		int twoSum = 0;
@@ -54,6 +80,7 @@ public class CodilityLesson9 {
 			//System.out.println("i =============== "+i);
 		}
 		return maxSum;
+		*/
 	}
 	
 
