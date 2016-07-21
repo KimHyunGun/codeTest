@@ -11,6 +11,7 @@ public class HelloWorld {
 		while(cases-- > 0){
 			String name = sc.next();
 			System.out.println("Hello, "+name+"!");
+			//
 		}
 	}
 
